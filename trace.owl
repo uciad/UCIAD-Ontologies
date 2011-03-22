@@ -5,29 +5,33 @@
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
     <!ENTITY owl2 "http://www.w3.org/2006/12/owl2#" >
-    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
     <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY swrlx "http://www.w3.org/2003/11/swrlx#" >
+    <!ENTITY xxx "http://ucia.info/ontology/trace/" >
     <!ENTITY actor "http://uciad.info/ontology/actor/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY tr "http://uciad.info/ontology/trace/" >
     <!ENTITY sitemap "http://uciad.info/ontology/sitemap/" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://ucia.info/ontology/trace/"
-     xml:base="http://ucia.info/ontology/trace/"
+<rdf:RDF xmlns="http://uciad.info/ontology/trace#"
+     xml:base="http://uciad.info/ontology/trace"
+     xmlns:tr="http://uciad.info/ontology/trace/"
+     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
+     xmlns:actor="http://uciad.info/ontology/actor/"
+     xmlns:owl2="http://www.w3.org/2006/12/owl2#"
+     xmlns:xxx="http://ucia.info/ontology/trace/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:sitemap="http://uciad.info/ontology/sitemap/"
-     xmlns:swrlx="http://www.w3.org/2003/11/swrlx#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:actor="http://uciad.info/ontology/actor/"
-     xmlns:owl2="http://www.w3.org/2006/12/owl2#">
-    <owl:Ontology rdf:about="http://ucia.info/ontology/trace">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://uciad.info/ontology/trace">
         <owl:imports rdf:resource="http://uciad.info/ontology/actor"/>
         <owl:imports rdf:resource="http://uciad.info/ontology/sitemap"/>
     </owl:Ontology>
@@ -45,78 +49,87 @@
     
 
 
-    <!-- http://ucia.info/ontology/trace/followsTrace -->
+    <!-- http://uciad.info/ontology/trace/followsTrace -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/followsTrace">
+    <owl:ObjectProperty rdf:about="&tr;followsTrace">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/Trace"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
+        <rdfs:range rdf:resource="&tr;Trace"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasAction -->
+    <!-- http://uciad.info/ontology/trace/hasAction -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasAction">
+    <owl:ObjectProperty rdf:about="&tr;hasAction">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/TraceAction"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
+        <rdfs:range rdf:resource="&tr;TraceAction"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasActor -->
+    <!-- http://uciad.info/ontology/trace/hasActor -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasActor">
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/Actor"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
+    <owl:ObjectProperty rdf:about="&tr;hasActor">
+        <rdfs:range rdf:resource="&tr;Actor"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasPageInvolved -->
+    <!-- http://uciad.info/ontology/trace/hasPageInvolved -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasPageInvolved">
+    <owl:ObjectProperty rdf:about="&tr;hasPageInvolved">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/WebPage"/>
+        <rdfs:range rdf:resource="&sitemap;WebPage"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasParameterValue -->
+    <!-- http://uciad.info/ontology/trace/hasParameterValue -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasParameterValue">
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/ParameterValue"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
+    <owl:ObjectProperty rdf:about="&tr;hasParameterValue">
+        <rdfs:range rdf:resource="&tr;ParameterValue"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasResponse -->
+    <!-- http://uciad.info/ontology/trace/hasResponse -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasResponse">
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/TraceResponse"/>
+    <owl:ObjectProperty rdf:about="&tr;hasResponse">
+        <rdfs:domain rdf:resource="&tr;Trace"/>
+        <rdfs:range rdf:resource="&tr;TraceResponse"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/hasSetting -->
+    <!-- http://uciad.info/ontology/trace/hasResponseCode -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/hasSetting">
+    <owl:ObjectProperty rdf:about="&tr;hasResponseCode">
+        <rdfs:domain rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:range rdf:resource="&tr;HTTPResponseCode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/hasSetting -->
+
+    <owl:ObjectProperty rdf:about="&tr;hasSetting">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
         <rdfs:range rdf:resource="&actor;ActorSetting"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/parameter -->
+    <!-- http://uciad.info/ontology/trace/parameter -->
 
-    <owl:ObjectProperty rdf:about="http://ucia.info/ontology/trace/parameter">
-        <rdfs:range rdf:resource="http://ucia.info/ontology/trace/Parameter"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/ParameterValue"/>
+    <owl:ObjectProperty rdf:about="&tr;parameter">
+        <rdfs:range rdf:resource="&tr;Parameter"/>
+        <rdfs:domain rdf:resource="&tr;ParameterValue"/>
     </owl:ObjectProperty>
     
 
@@ -132,20 +145,29 @@
     
 
 
-    <!-- http://ucia.info/ontology/trace/time -->
+    <!-- http://uciad.info/ontology/trace/hasSizeInBytes -->
 
-    <owl:DatatypeProperty rdf:about="http://ucia.info/ontology/trace/time">
+    <owl:DatatypeProperty rdf:about="&tr;hasSizeInBytes">
+        <rdfs:domain rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/time -->
+
+    <owl:DatatypeProperty rdf:about="&tr;time">
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/Trace"/>
+        <rdfs:domain rdf:resource="&tr;Trace"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://ucia.info/ontology/trace/value -->
+    <!-- http://uciad.info/ontology/trace/value -->
 
-    <owl:DatatypeProperty rdf:about="http://ucia.info/ontology/trace/value">
-        <rdfs:domain rdf:resource="http://ucia.info/ontology/trace/ParameterValue"/>
+    <owl:DatatypeProperty rdf:about="&tr;value">
+        <rdfs:domain rdf:resource="&tr;ParameterValue"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -162,115 +184,205 @@
     
 
 
-    <!-- http://ucia.info/ontology/trace/Actor -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/Actor"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPClientError -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPClientError">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPFailureResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPFailureResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPFailureResponse">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPInformationalResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPInformationalResponse">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPMethod -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPMethod">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/TraceAction"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPRedirectionResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPRedirectionResponse">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPResponse">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/TraceResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPServerError -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPServerError">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPFailureResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/HTTPSuccessResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/HTTPSuccessResponse">
-        <rdfs:subClassOf rdf:resource="http://ucia.info/ontology/trace/HTTPResponse"/>
-    </owl:Class>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/Parameter -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/Parameter"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/ParameterValue -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/ParameterValue"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/Trace -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/Trace"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/TraceAction -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/TraceAction"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/TraceResponse -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/TraceResponse"/>
-    
-
-
-    <!-- http://ucia.info/ontology/trace/WebPage -->
-
-    <owl:Class rdf:about="http://ucia.info/ontology/trace/WebPage"/>
-    
-
-
     <!-- http://uciad.info/ontology/actor/ActorSetting -->
 
     <owl:Class rdf:about="&actor;ActorSetting"/>
+    
+
+
+    <!-- http://uciad.info/ontology/sitemap/WebPage -->
+
+    <owl:Class rdf:about="&sitemap;WebPage"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/Actor -->
+
+    <owl:Class rdf:about="&tr;Actor"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPClientError -->
+
+    <owl:Class rdf:about="&tr;HTTPClientError">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPFailureResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPClientErrorCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPClientErrorCode -->
+
+    <owl:Class rdf:about="&tr;HTTPClientErrorCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPFailureCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPFailureCode -->
+
+    <owl:Class rdf:about="&tr;HTTPFailureCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponseCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPFailureResponse -->
+
+    <owl:Class rdf:about="&tr;HTTPFailureResponse">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPFailureCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPInformationalCode -->
+
+    <owl:Class rdf:about="&tr;HTTPInformationalCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponseCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPInformationalResponse -->
+
+    <owl:Class rdf:about="&tr;HTTPInformationalResponse">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPInformationalCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPMethod -->
+
+    <owl:Class rdf:about="&tr;HTTPMethod">
+        <rdfs:subClassOf rdf:resource="&tr;TraceAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPRedirectionCode -->
+
+    <owl:Class rdf:about="&tr;HTTPRedirectionCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponseCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPRedirectionResponse -->
+
+    <owl:Class rdf:about="&tr;HTTPRedirectionResponse">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPRedirectionCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPResponse -->
+
+    <owl:Class rdf:about="&tr;HTTPResponse">
+        <rdfs:subClassOf rdf:resource="&tr;TraceResponse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPResponseCode -->
+
+    <owl:Class rdf:about="&tr;HTTPResponseCode"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPServerError -->
+
+    <owl:Class rdf:about="&tr;HTTPServerError">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPFailureResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPServerErrorCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPServerErrorCode -->
+
+    <owl:Class rdf:about="&tr;HTTPServerErrorCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPFailureCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPSuccessCode -->
+
+    <owl:Class rdf:about="&tr;HTTPSuccessCode">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponseCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/HTTPSuccessResponse -->
+
+    <owl:Class rdf:about="&tr;HTTPSuccessResponse">
+        <rdfs:subClassOf rdf:resource="&tr;HTTPResponse"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&tr;hasResponseCode"/>
+                <owl:someValuesFrom rdf:resource="&tr;HTTPSuccessCode"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/Parameter -->
+
+    <owl:Class rdf:about="&tr;Parameter"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/ParameterValue -->
+
+    <owl:Class rdf:about="&tr;ParameterValue"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/Trace -->
+
+    <owl:Class rdf:about="&tr;Trace"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/TraceAction -->
+
+    <owl:Class rdf:about="&tr;TraceAction"/>
+    
+
+
+    <!-- http://uciad.info/ontology/trace/TraceResponse -->
+
+    <owl:Class rdf:about="&tr;TraceResponse"/>
     
 
 
@@ -285,358 +397,358 @@
     
 
 
-    <!-- http://ucia.info/ontology/trace/100 -->
+    <!-- http://uciad.info/ontology/trace/100 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/100">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPInformationalResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;100">
+        <rdf:type rdf:resource="&tr;HTTPInformationalCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/101 -->
+    <!-- http://uciad.info/ontology/trace/101 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/101">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPInformationalResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;101">
+        <rdf:type rdf:resource="&tr;HTTPInformationalCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/200 -->
+    <!-- http://uciad.info/ontology/trace/200 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/200">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;200">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/201 -->
+    <!-- http://uciad.info/ontology/trace/201 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/201">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;201">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/202 -->
+    <!-- http://uciad.info/ontology/trace/202 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/202">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;202">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/203 -->
+    <!-- http://uciad.info/ontology/trace/203 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/203">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;203">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/204 -->
+    <!-- http://uciad.info/ontology/trace/204 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/204">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;204">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/205 -->
+    <!-- http://uciad.info/ontology/trace/205 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/205">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;205">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/206 -->
+    <!-- http://uciad.info/ontology/trace/206 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/206">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPSuccessResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;206">
+        <rdf:type rdf:resource="&tr;HTTPSuccessCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/300 -->
+    <!-- http://uciad.info/ontology/trace/300 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/300">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;300">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/301 -->
+    <!-- http://uciad.info/ontology/trace/301 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/301">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;301">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/302 -->
+    <!-- http://uciad.info/ontology/trace/302 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/302">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;302">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/303 -->
+    <!-- http://uciad.info/ontology/trace/303 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/303">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;303">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/304 -->
+    <!-- http://uciad.info/ontology/trace/304 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/304">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;304">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/305 -->
+    <!-- http://uciad.info/ontology/trace/305 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/305">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;305">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/307 -->
+    <!-- http://uciad.info/ontology/trace/307 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/307">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPRedirectionResponse"/>
+    <owl:NamedIndividual rdf:about="&tr;307">
+        <rdf:type rdf:resource="&tr;HTTPRedirectionCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/400 -->
+    <!-- http://uciad.info/ontology/trace/400 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/400">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;400">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/401 -->
+    <!-- http://uciad.info/ontology/trace/401 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/401">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;401">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/402 -->
+    <!-- http://uciad.info/ontology/trace/402 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/402">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;402">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/403 -->
+    <!-- http://uciad.info/ontology/trace/403 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/403">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;403">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/404 -->
+    <!-- http://uciad.info/ontology/trace/404 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/404">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;404">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/405 -->
+    <!-- http://uciad.info/ontology/trace/405 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/405">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;405">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/406 -->
+    <!-- http://uciad.info/ontology/trace/406 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/406">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;406">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/407 -->
+    <!-- http://uciad.info/ontology/trace/407 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/407">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;407">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/408 -->
+    <!-- http://uciad.info/ontology/trace/408 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/408">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;408">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/409 -->
+    <!-- http://uciad.info/ontology/trace/409 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/409">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;409">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/410 -->
+    <!-- http://uciad.info/ontology/trace/410 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/410">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;410">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/411 -->
+    <!-- http://uciad.info/ontology/trace/411 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/411">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;411">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/412 -->
+    <!-- http://uciad.info/ontology/trace/412 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/412">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;412">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/413 -->
+    <!-- http://uciad.info/ontology/trace/413 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/413">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;413">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/414 -->
+    <!-- http://uciad.info/ontology/trace/414 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/414">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;414">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/415 -->
+    <!-- http://uciad.info/ontology/trace/415 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/415">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;415">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/416 -->
+    <!-- http://uciad.info/ontology/trace/416 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/416">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;416">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/417 -->
+    <!-- http://uciad.info/ontology/trace/417 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/417">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPClientError"/>
+    <owl:NamedIndividual rdf:about="&tr;417">
+        <rdf:type rdf:resource="&tr;HTTPClientErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/500 -->
+    <!-- http://uciad.info/ontology/trace/500 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/500">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;500">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/501 -->
+    <!-- http://uciad.info/ontology/trace/501 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/501">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;501">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/502 -->
+    <!-- http://uciad.info/ontology/trace/502 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/502">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;502">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/503 -->
+    <!-- http://uciad.info/ontology/trace/503 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/503">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;503">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/504 -->
+    <!-- http://uciad.info/ontology/trace/504 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/504">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;504">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/505 -->
+    <!-- http://uciad.info/ontology/trace/505 -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/505">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPServerError"/>
+    <owl:NamedIndividual rdf:about="&tr;505">
+        <rdf:type rdf:resource="&tr;HTTPServerErrorCode"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/HTTPDelete -->
+    <!-- http://uciad.info/ontology/trace/HTTPDelete -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/HTTPDelete">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPMethod"/>
+    <owl:NamedIndividual rdf:about="&tr;HTTPDelete">
+        <rdf:type rdf:resource="&tr;HTTPMethod"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/HTTPGet -->
+    <!-- http://uciad.info/ontology/trace/HTTPGet -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/HTTPGet">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPMethod"/>
+    <owl:NamedIndividual rdf:about="&tr;HTTPGet">
+        <rdf:type rdf:resource="&tr;HTTPMethod"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/HTTPPost -->
+    <!-- http://uciad.info/ontology/trace/HTTPPost -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/HTTPPost">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPMethod"/>
+    <owl:NamedIndividual rdf:about="&tr;HTTPPost">
+        <rdf:type rdf:resource="&tr;HTTPMethod"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://ucia.info/ontology/trace/HTTPPut -->
+    <!-- http://uciad.info/ontology/trace/HTTPPut -->
 
-    <owl:NamedIndividual rdf:about="http://ucia.info/ontology/trace/HTTPPut">
-        <rdf:type rdf:resource="http://ucia.info/ontology/trace/HTTPMethod"/>
+    <owl:NamedIndividual rdf:about="&tr;HTTPPut">
+        <rdf:type rdf:resource="&tr;HTTPMethod"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version [Not Released]) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.2.0.1502) http://owlapi.sourceforge.net -->
 
